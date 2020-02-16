@@ -40,7 +40,7 @@ class Registro extends React.Component{
         var claro = this.state.contrasena;
         var procesoregistro = {usuario:this.state.usuario, claro:claro};
             var body = JSON.stringify(procesoregistro);
-            fetch('http://localhost:4000/registerprocess?usuario='+procesoregistro.usuario+"&claro="+procesoregistro.claro,{
+            fetch('http://backend:4000/registerprocess?usuario='+procesoregistro.usuario+"&claro="+procesoregistro.claro,{
                 method:'GET',
             }).then(function(response){
                 return response.json();
