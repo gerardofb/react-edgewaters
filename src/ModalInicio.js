@@ -12,7 +12,22 @@ class ModalInicio extends React.Component{
             apodo:''            
         }
     }
-    
+    componentDidMount(){
+        let cookies = document.cookie;
+        let cookiebuscada = "usuarioedgewaters";
+        var separadas = cookies.split(";");
+        let usuario = "";
+        for(var i = 0; i < separadas.length; i++){
+            var llaves = separadas[i].split("=");
+            if(llaves[0] == cookiebuscada){
+                usuario=llaves[1];
+                break;
+            }
+        }
+        console.log('usuario buscado '+usuario);
+        this.setState({nickname:usuario});
+    }
+
     iniciarSesion(event){
         if((event.currentTarget.checkValidity() === false)|| this.state.apodo.length != 12) {
                 event.preventDefault();
@@ -29,23 +44,12 @@ class ModalInicio extends React.Component{
         }
         
     }
-    handleNickName(event){
-        this.setState({nickname:event.target.value});
-    }
     handleApodo(event){
         this.setState({apodo:event.target.value});
     }
     render(){
         let btnSala = <Button type="submit" variant="primary">Iniciar</Button>
         let inicio = <Form className={this.state.claseValidacion} noValidate validated={this.state.validated} onSubmit={this.iniciarSesion.bind(this)}>
-            <FormGroup>
-                <FormLabel>Requerimos su correo electrónico para comenzar:</FormLabel>
-                <FormControl required type="email" placeholder="Escriba su correo electrónico"
-                value={this.state.nickname} onChange={this.handleNickName.bind(this)}></FormControl>
-            <Form.Control.Feedback type="invalid">
-            Por favor proporcione un correo electrónico válido
-          </Form.Control.Feedback>
-            </FormGroup>
             <FormGroup>
                 <FormLabel>Requerimos que se identifique con un nombre o apodo de 12 caracteres en el chat:</FormLabel>
                 <FormControl required pattern=".{12,12}"type="text" placeholder="Escriba su nombre o apodo"
