@@ -54,7 +54,7 @@ class Login extends React.Component{
         var procesosesion = {login:this.state.nickname, claro:claro};
             console.log('iniciando sesion');    
             var body = JSON.stringify(procesosesion);
-            fetch('http://backend:4000/loginprocess?usuario='+procesosesion.login+"&claro="+procesosesion.claro,{
+            fetch('http://localhost:4000/loginprocess?usuario='+procesosesion.login+"&claro="+procesosesion.claro,{
                 method:'GET',
             }).then(function(response){
                 return response.json();
