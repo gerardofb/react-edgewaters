@@ -36,13 +36,8 @@ class App extends React.Component{
   }
   cambiarSala(salaNueva){
   var salaAntigua = this.state.nombreSesion;
-  console.log('verificación de cambio de sala');
-  console.log(salaAntigua);
-  console.log(salaNueva);
-  this.setState({nombreSesion:salaNueva},function(){
-    socket.emit("cambiarSala",{old:salaAntigua, nuevo:salaNueva}); 
-  });
-     
+  var salaNueva = salaNueva;
+  socket.emit("cambiarSala",{old:salaAntigua, nuevo:salaNueva});    
   }
   componentDidMount(){
     socket.emit("list_rooms");
@@ -84,7 +79,7 @@ class App extends React.Component{
   let salas = this.state.salas.map((k)=>{
     indiceSalas++;
     return <ListGroupItem key={indiceSalas}>
-      <Button variant="dark" onClick={this.cambiarSala.bind(this,k.salaChat)}>{k.salaChat}&nbsp;<Badge variant="primary">&nbsp;{k.usuarios} usuarios</Badge></Button>
+      <Button variant="dark" onClick={this.cambiarSala(k.salaChat)}>{k.salaChat}&nbsp;<Badge variant="primary">&nbsp;{k.usuarios} usuarios</Badge></Button>
     </ListGroupItem>
   })
   let mensajes = this.state.mensajes.map((k)=>{

@@ -19,7 +19,7 @@ class ModalInicio extends React.Component{
         let usuario = "";
         for(var i = 0; i < separadas.length; i++){
             var llaves = separadas[i].split("=");
-            if(llaves[0].trim() == cookiebuscada){
+            if(llaves[0] == cookiebuscada){
                 usuario=llaves[1];
                 break;
             }
