@@ -15,7 +15,7 @@ Se utiliza redis como broker de mensajes y para almacenar los datos del chat.
 
 El proyecto front end se implementó en react js utilizando la librería react-bootstrap.
 
-Para correr este proyecto, clonarlo y ejecutar estos comandos: npm install y después npm start.
+Para correr este proyecto, clonarlo y ejecutar estos comandos: `npm install` y después `npm start`.
 Abrir [http://localhost:3000](http://localhost:3000) para ver la aplicación web.
 
 La página se recargará si hace cambios en el código.
