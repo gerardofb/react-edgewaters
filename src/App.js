@@ -84,7 +84,7 @@ class App extends React.Component{
   let salas = this.state.salas.map((k)=>{
     indiceSalas++;
     return <ListGroupItem key={indiceSalas}>
-      <Button variant="dark" onClick={this.cambiarSala.bind(this,k.salaChat)}>{k.salaChat}&nbsp;<Badge variant="primary">&nbsp;{k.usuarios} usuarios</Badge></Button>
+      <Button variant="dark" className="switchSala" onClick={this.cambiarSala.bind(this,k.salaChat)}>{k.salaChat}&nbsp;<Badge variant="primary">&nbsp;{k.usuarios} usuarios</Badge></Button>
     </ListGroupItem>
   })
   let mensajes = this.state.mensajes.map((k)=>{

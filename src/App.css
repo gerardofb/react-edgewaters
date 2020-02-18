@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+/*
+Botones de cambio de sala en el chat
+*/
+.switchSala:hover{
+  color:#000000;
+  background-color:#9fa8b1;
+}
